@@ -1,0 +1,197 @@
+<HomeScreen>
+    Screen:
+		canvas.before:
+			Color:
+				rgb: .07, .32, .78
+			Rectangle:
+				pos: 0,0
+				size: self.size
+        Label:
+            text: 'CVC Checklist'
+            font_size: '40sp'
+            size_hint: .8, .2
+            pos_hint: {'y':.8,'x':.1}
+        Spinner:
+            id: equipmenttype_spinner
+            text: 'Equipment Type'
+            size_hint: .8, .1
+            pos_hint: {'y':.4,'x':.1}
+            values: root.equipment_type
+            on_text: app.my_report.equipment_type = self.text
+		Button:
+			text: 'Start'
+            size_hint: .8, .1
+            pos_hint: {'y':.25, 'x':.1}
+			on_press: root.manager.current = 'equipmentscreen'
+		Button:
+			text: 'Settings'
+            size_hint: .8, .1
+            pos_hint: {'y':.1, 'x':.1}
+			on_press: root.manager.current = 'settingsscreen'
+
+<SettingsScreen>
+    Screen:
+        cols: 1
+        canvas.before:
+        	Color:
+        		rgb: .07, .32, .78
+        	Rectangle:
+        		pos: 0,0
+        		size: self.size
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Settings'
+                font_size: '40sp'
+                size_hint: .8, .2
+                pos_hint: {'y':.8,'x':.1}
+            BoxLayout:
+                padding: 10
+                spacing: 5
+                orienation: 'horizontal'
+                Label:
+                    text: 'Name'
+                    size_hint: .1, .1
+                TextInput:
+                    id: text_name
+                    text: app.settings.name
+                    on_text: app.settings.name = self.text
+                    size_hint: .6, .1
+            Spinner:
+                id: spinner_language
+                text: 'Language'
+                values: root.language_values
+                on_release: app.settings.language = self.text
+                size_hint: .8, .1
+                pos_hint: {'y':.8,'x':.1}
+            BoxLayout:
+                orienation: 'horizontal'
+                padding: 20
+                spacing: 5
+        		Button:
+        			text: 'Cancel'
+                    size_hint: .45, .1
+        			on_press: root.manager.current = 'homescreen'
+        		Button:
+        			text: 'Save'
+                    size_hint: .45, .1
+        			on_press: root.manager.current = 'homescreen'
+
+<VehicleScreen>
+    Screen:
+        cols: 1
+        canvas.before:
+        	Color:
+        		rgb: .07, .32, .78
+        	Rectangle:
+        		pos: 0,0
+        		size: self.size
+        BoxLayout:
+            orientation: 'vertical'
+    		Button:
+    			text: 'Take Photo'
+                size_hint: .8, .01
+                pos_hint: {'y':.9, 'x':.1}
+    			on_press: root.manager.current = 'camerascreen'
+
+<CameraScreen>:
+    Screen:
+        BoxLayout:
+            orientation: 'vertical'
+            Widget:
+                id: proxy
+                Camera:
+                    id: camera
+                    #resolution: (1920, 1080)
+                    play: False
+                    center: self.size and proxy.center
+                    size: proxy.height, proxy.width
+
+                    canvas.before:
+                        PushMatrix:
+                        Rotate:
+                            angle: 270
+                            origin: self.center
+
+                    canvas.after:
+                        PopMatrix:
+            ToggleButton:
+                text: 'Enable Camera'
+                on_press: camera.play = not camera.play
+                size_hint_y: .1
+            Button:
+                text: 'Capture'
+                size_hint_y: .1
+                on_press: root.capture(app.my_report)
+                on_release: root.manager.current = 'notescreen'
+            Button:
+                text: 'Back'
+                size_hint_y: .1
+                on_release: root.manager.current = 'notescreen'
+
+
+<SendReportScreen>
+    Screen:
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: .05
+            Button:
+                text: 'Send'
+                size_hint_x: .25
+                on_press: root.send_report(filechooser.path, app.my_report.current.filename)
+
+<ExitPopup>
+    size_hint: .8, .2
+    Button:
+        size_hint_y: .5
+        text: 'Okay'
+        on_release: root.on_button_yes()
+
+<Manager>
+    id: screen_manager
+    home:home
+    settings:settings
+    equipment:equipment
+    vehicle:vehicle
+    atv:atv
+    tractor:tractor
+    implement:implement
+    tool:tool
+    send_report:send_report
+
+    HomeScreen:
+        id: home
+        name: "homescreen"
+        manager: screen_manager
+    SettingsScreen:
+        id: settings
+        name: "settingsscreen"
+        manager: screen_manager
+    EquipmentScreen:
+        id: equipment
+        name: "equipmentscreen"
+        manager: screen_manager
+    VehicleScreen:
+        id: vehicle
+        name: "vehiclescreen"
+        manager: screen_manager
+    AtvScreen:
+        id: atv
+        name: "atvscreen"
+        manager: screen_manager
+    TractorScreen:
+        id: tractor
+        name: "tractorscreen"
+        manager: screen_manager
+    ImplementScreen:
+        id: implement
+        name: "implementscreen"
+        manager: screen_manager
+    ToolScreen:
+        id: tool
+        name: "toolscreen"
+        manager: screen_manager
+    SendReportScreen:
+        id: send_report
+        name: "sendreportscreen"
+        manager: screen_manager

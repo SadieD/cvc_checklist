@@ -1,0 +1,149 @@
+{
+	"language": [
+		"English",
+		"Español"
+	],
+	"start": [{
+		"english": "Start",
+		"spanish": "Comenzar"
+	}],
+	"preferences": [{
+		"english": "Preferences",
+		"spanish": "Preferencias"
+	}],
+	"name": [{
+		"english": "Name",
+		"spanish": "Nombre"
+	}],
+	"equipment": [{
+		"english": "Equipment",
+		"spanish": "Equipo"
+	}],
+    "equipment_type":[{
+            "english":[
+                "Automobile",
+                "All Terrain Vehicle",
+                "Tractor",
+                "Implement",
+                "Tool"
+            ],
+            "spanish":[
+                "Automóvil",
+                "Vehículo todo Terreno",
+                "Tractor",
+                "Implementar",
+                "Herramienta"
+            ]}
+    ],
+	"atv_id": [
+		"Honda Rubicon",
+		"Honda Foreman",
+		"Honda Ranger",
+		"Honda Scout"
+	],
+	"vehicle_id": [
+		"Chevrolet 2007 (Brown)",
+		"Chevrolet 2012 (White)",
+		"Chevrolet Flat-Bed",
+		"Dodge 3500 2000 (Red)",
+		"Dodge 3500 2003 (Silver)",
+		"Ford F700 1991 (Manual)",
+		"Hino 2016 (Automatic)",
+		"Honda CRV 2014 (Silver)",
+		"Toyota 1998 (Green)",
+		"Toyota 2005 (White/Manual)",
+		"Toyota 2007 (White/Auto)",
+		"Toyota 2013 (White/Auto)"
+	],
+	"tractor_id": [
+		"John Deere 5710N",
+		"Kubota",
+		"John Deere (Open Cab)",
+		"Excavator"
+	],
+	"implement_id": [
+		"Disker",
+		"Mower"
+	],
+	"gear_id": [
+		"Chipper",
+		"Log Splitter",
+		"Chainsaw"
+	],
+	"oil_engine": [{
+			"english": "Level Good",
+			"spanish": "Nivel Bueno",
+			"alert": 0
+		},
+		{
+			"english": "Level Low",
+			"spanish": "Nivel Bajo",
+			"alert": 1
+		},
+		{
+			"english": "Oil Dirty",
+			"spanish": "Aceite de Motor Sucio",
+			"alert": 2
+		}
+	],
+	"oil_trans": [{
+			"english": "Level Good",
+			"spanish": "Nivel Bueno",
+			"alert": 0
+		},
+		{
+			"english": "Level Low",
+			"spanish": "Nivel Lajo",
+			"alert": 2
+		},
+		{
+			"english": "Manual Transmission",
+			"spanish": "Transmisión Manual",
+			"alert": 0
+		}
+	],
+	"tire_condition": [{
+			"english": "Green",
+			"spanish": "Verde",
+			"alert": 0
+		},
+		{
+			"english": "Yellow",
+			"spanish": "Amarillo",
+			"alert": 1
+		},
+		{
+			"english": "Red",
+			"spanish": "Rojo",
+			"alert": 2
+		},
+		{
+			"english": "Flat",
+			"spanish": "Neumático Desinflado",
+			"alert": 2
+		}
+	],
+	"tire_spare": [{
+			"english": "Yes",
+			"spanish": "Sí",
+			"alert": 0
+		},
+		{
+			"english": "No",
+			"spanish": "No",
+			"alert": 2
+		}
+	],
+	"tire_iron": [{
+			"english": "Yes",
+			"spanish": "Sí",
+			"alert": 0
+		},
+		{
+			"english": "No",
+			"spanish": "No",
+			"alert": 2
+		}
+	]
+
+}
